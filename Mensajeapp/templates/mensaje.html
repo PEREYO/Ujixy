@@ -1,0 +1,11 @@
+{% extends "base_mensaje.html" %}
+{% block content2 %}
+	<h2 align="center">{{ mensaje.asunto }}</h2>	
+	<p> From: {{ mesanje.envia}}</p>
+	<p> Message: {{ mesanje.mensaje}}</p>
+	<p> Answer the message: </p>
+	<form action="." method="POST">{% csrf_token %}
+		<p>Message: {{ form.mensaje }}</p>
+		<p><input type="submit" value="Enviar"></p>
+	</form>
+{% endblock %}

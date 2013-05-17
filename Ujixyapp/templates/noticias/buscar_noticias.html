@@ -1,0 +1,23 @@
+{% extends "bases/base_busqueda.html" %}
+{% block title %}Búsqueda de noticias{% endblock %}
+{% block titulobusqueda %} Búsqueda de noticias {% endblock %}
+{% block mostrarbusqueda %}
+	<h2>{{ busqueda.titulo }}</h2>
+	<a href="http://127.0.0.1:8000/MostrarNoticia/{{ busqueda.id }}">
+		<img class="imagenes"
+			{% if busqueda.imagen %}
+				src="{{ busqueda.imagen.url }}" 
+			{% else %} 
+				src="{{ MEDIA_URL }}media/imagenes/sinnoticia.jpg"
+			{% endif %}
+			align="left" width="103" height="80" style="margin-right:10px"
+		>				
+	</a>
+	{{ busqueda.cuerpo|truncatewords:"20"|linebreaks|ljust:"100"}}
+	<p>Escrita por: {{ busqueda.redactor }}</p>
+	{{ busqueda.hora|date|urlize}}
+	<p></p>
+{% endblock %}
+{% block tipobusqueda %}
+<p>No hay noticias para:</p>
+{% endblock %}

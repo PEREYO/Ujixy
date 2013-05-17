@@ -1,0 +1,32 @@
+{% extends "bases/base_grupos.html" %}
+{% block title %}Music Groups{% endblock %}
+{% block content2 %}
+<div>
+	<table align="center" border="0" cellpadding="2" cellspacing="0" class="tabla">
+		<tr>
+			<th>Image </td>
+			<th>Name </td>
+		</tr>
+		{% for g in grupos %}
+			<tr>			
+				<td >
+					<a href="{{ MEDIA_URL }}MostrarGrupo/{{ g.slug }}">
+						<img class="imagen"
+							{% if p.imagen %}
+								src="{{ p.imagen.url }}" 
+							{% else %} 
+								src="{{ MEDIA_URL }}media/imagenes/interrogacion.jpg"
+							{% endif %}
+							align="left" width="125" height="100" style="margin-right:10px">
+						</img>
+					</a>
+				</td >
+				
+				<td >{{ g.nombre_grupo }}</td>				
+			</tr>
+		{% endfor %}
+	
+	</table>
+	
+</div>
+{% endblock %}

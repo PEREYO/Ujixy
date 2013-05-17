@@ -1,0 +1,39 @@
+{% extends "bases/base_musicos.html" %}
+{% block content2 %}
+	<h2 align="center">{{ grupo.nombre_grupo }}</h2>
+	{% if grupo.descripcion_grupo %}
+		{{ grupo.descripcion_grupo }}
+	{% else %}
+		<p>There is no description.</p>
+	{% endif %}
+	<p>Groups members:</p>
+	{% for i in grupo.integrantes.all %}
+		<h2>{{ i.nombre }}</h2>
+		<a href="{{ MEDIA_URL }}MostrarIntegrante/{{ i.slug }}">
+			<img 
+			{% if i.imagen %}
+				src="{{ i.imagen.url }}" 
+			{% else %} 
+				src="{{ MEDIA_URL }}media/imagenes/incognito.jpg"
+			{% endif %}
+			align="left" width="103" height="80" style="margin-right:10px">
+		</a>
+		<p>Function: {{ i.funcion}}</p>
+		<p>Description: {{ i.descripcion_integrante }}</p>
+		<p>&nbsp;</p>
+	{% endfor %}
+	<p>Products of {{ grupo.nombre_grupo }} :</p>
+	{% for p in grupo.productos.all %}
+			<h3>{{ p.nombre_producto }}</h3>
+			<a href="{{ MEDIA_URL }}MostrarProducto/{{ p.id }}">
+				<img 
+					{% if p.imagen %}
+						src="{{ p.imagen.url }}" 
+					{% else %} 
+						src="{{ MEDIA_URL }}media/imagenes/interrogacion.jpg"
+					{% endif %}
+					align="left" width="103" height="80" style="margin-right:10px"></a>
+			<p>Price: {{ p.precio}}</p>
+			<p>&nbsp;</p>
+		{% endfor %}
+{% endblock %}

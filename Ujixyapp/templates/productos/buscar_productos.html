@@ -1,0 +1,22 @@
+{% extends "bases/base_busqueda.html" %}
+{% block title %}Búsqueda de productos{% endblock %}
+{% block titulobusqueda %} Búsqueda de Productos {% endblock %}
+{% block mostrarbusqueda %}
+<h2>{{ busqueda.nombre_producto }}</h2>
+	<a href="{{ MEDIA_URL }}MostrarProducto/{{ busqueda.id }}">
+		<img class="imagenes"
+			{% if busqueda.imagen %}
+				src="{{ busqueda.imagen.url }}" 
+			{% else %} 
+				src="{{ MEDIA_URL }}media/imagenes/interrogacion.jpg"
+			{% endif %}
+			align="left" width="103" height="80" style="margin-right:10px"
+		>				
+	</a>
+	<p>Tipo de producto: {{ busqueda.tipo }}</p>
+	<p>Precio: {{ busqueda.precio }}</p>
+	<br>
+{% endblock %}
+{% block tipobusqueda %}
+<p>No hay coincidencias de productos para:</p>
+{% endblock %}

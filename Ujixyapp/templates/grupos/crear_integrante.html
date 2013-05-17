@@ -1,0 +1,13 @@
+{% extends "bases/base.html" %}
+{% block content2 %}
+	<h1>New member</h1>
+	<p> {{ usuario.username }}</p>
+	<p> {{ usuario.id }}</p>
+	<p> getprofile {{ usuario.get_profile.id }}</p>
+	<form action="." method="POST">{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+		</table>
+		<p><input type="submit" value="Guardar"></p>
+	</form>
+{% endblock %}

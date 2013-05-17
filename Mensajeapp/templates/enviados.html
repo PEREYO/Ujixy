@@ -1,0 +1,12 @@
+{% extends "bases/base_mensajes.html" %}
+{% block content2 %}
+<div>
+	{% for m in mensajes %}
+	<h2>{{ m.asunto }}</h2>
+	<a href="{{ MEDIA_URL }}MostrarMensaje/{{ m.slug }}">
+		<img class="imagenes" src="{{ p.imagen.url }}" align="left" width="103" height="80" style="margin-right:10px"></a>
+	{{ m.mensaje|truncatewords:"20"|linebreaks|ljust:"100"}}
+	<p>&nbsp;</p>
+	{% endfor %}
+</div>
+{% endblock %}

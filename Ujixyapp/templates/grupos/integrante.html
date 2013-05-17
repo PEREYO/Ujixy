@@ -1,0 +1,10 @@
+{% extends "bases/base_grupos.html" %}
+{% block content2 %}
+	<h2 align="center">{{ integrante.nombre }}</h2>
+	<p>Función: {{ integrante.funcion }}</p>
+	{% if integrante.descripcion_integrante %}
+		{{ integrante.descripcion_integrante }}
+	{% else %}
+		<p>No hay ninguna descripción disponible.</p>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "bases/base_noticias.html" %}
+{% block content2 %}
+<div>
+	{% for noticia in noticias %}
+	<h2>{{ noticia.titulo }}</h2>
+	<a href="{{ MEDIA_URL }}MostrarNoticia/{{ noticia.slug }}">
+		<img class="imagenes"
+			{% if noticia.imagen %}
+				src="{{ noticia.imagen.url }}" 
+			{% else %}
+				src="{{ MEDIA_URL }}media/imagenes/sinnoticia.jpg"
+			{% endif %}
+			align="left" width="103" height="80" style="margin-right:10px"></a>
+	{{ noticia.cuerpo|safe|truncatewords:"20"|linebreaks|ljust:"100"}}
+	<p>Escrita por: {{ noticia.redactor }}</p>
+	{{ noticia.hora|date|urlize}}
+	<p></p>
+	{% endfor %}
+</div>
+{% endblock %}

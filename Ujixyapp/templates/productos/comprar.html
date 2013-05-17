@@ -1,0 +1,34 @@
+{% extends 'bases/base.html' %}
+{% block title %} Compra {% endblock %}
+{% block estilos %}
+	@import url("{{ MEDIA_URL }}media/css/carrito.css");
+{% endblock %}
+{% block content1 %}
+	<h2 align="center">Comprar siguiente carrito:  </h2>
+	<table align="center" border="0" cellpadding="0" cellspacing="0" class="tabla">
+		<tr>
+			<th>Producto </td>
+			<th>Tipo </td>
+			<th>Precio por unidad </td>
+			<th>Precio Total </td> 
+			<th>Cantidad </td> 
+		</tr>
+		{% for item in cart %}
+			<tr>			
+				<td >{{ item.product.nombre_producto }}</td >
+				<td >{{ item.product.tipo }}</td>
+				<td >{{ item.unit_price }} €</td>
+				<td >{{ item.total_price }} €</td>
+				<td >{{ item.quantity }}</td>					
+			</tr>
+		{% endfor %}
+	
+	</table>
+	<h4 align="left">Introduce los siguientes datos para realizar la compra:  </h4>
+	<form action="" method="POST" >
+		<table align="center">
+			{{ form }}
+		</table>
+		<p><input type="submit" value="comprar"></p>
+	</form>
+{% endblock %}

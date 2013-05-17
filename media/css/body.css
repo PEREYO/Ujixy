@@ -1,0 +1,9 @@
+BODY 
+{
+	font: 12pt Arial, Helvetica;
+	margin: 0;
+	text-align: center;
+	background-color: #E6FAC2;
+	background-image: url("{{ MEDIA_URL }}media/imagenes/fondo1.jpg");
+ 
+}

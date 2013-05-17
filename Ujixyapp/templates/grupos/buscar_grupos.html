@@ -1,0 +1,19 @@
+{% extends "bases/base_busqueda.html" %}
+{% block titulobusqueda %}Search for music group{% endblock %}
+{% block mostrarbusqueda %}
+<h2>{{ busqueda.nombre_grupo }}</h2>
+	<a href="{{ MEDIA_URL }}MostrarGrupo/{{ busqueda.id }}">
+		<img class="imagenes"
+			{% if busqueda.imagen %}
+				src="{{ busqueda.imagen.url }}" 
+			{% else %} 
+				src="{{ MEDIA_URL }}media/imagenes/singrupo.jpg"
+			{% endif %}
+			align="left" width="103" height="80" style="margin-right:10px"
+		>				
+	</a>
+	<br clear=all>
+{% endblock %}
+{% block tipobusqueda %}
+<p>There are not groups coincidences for :</p>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends tipoplantilla %}
+{% block content2 %}
+<h1>{% block titulobusqueda %}{% endblock %}</h1>
+	<form action="." method="GET">
+		<label for="p">Search: </label>
+		<input type="text" name="q" value="{{ query|escape }}">
+		<input type="submit" value="Buscar">
+	</form>
+	{% if query %}
+		<h2>Results of"{{ query|escape }}":</h2>
+		{% if results %}
+				{% for busqueda in results %}
+					{% block mostrarbusqueda %}{% endblock %}
+				{% endfor %}
+		{% else %}
+			<p>{% block tipobusqueda %}{% endblock %}"{{ query|escape }}"</p>
+		{% endif %}
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+#menuespecifico ul
+{
+	list-style-type: none;
+	text-align: center;
+}
+#menuespecifico li
+{
+	padding-right: 12px;
+	display: inline;
+	text-align: center;
+	margin: 0px 10px 0px 0px;
+}
+#menuespecifico li a 
+{
+	padding: 1px 5px 1px 5px;
+	color: #666;
+	background-color: #eeeeee;
+	border: 1px solid #ccc;
+	text-decoration: none;
+}
+#menuespecifico li a:hover
+{
+	background-color: #ffffff;
+	color: #000000;
+}

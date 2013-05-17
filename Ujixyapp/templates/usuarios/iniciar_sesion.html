@@ -1,0 +1,16 @@
+{% extends "bases/base.html" %}
+{% block estilos%}
+	DIV.principal
+	{
+		font: 10pt Arial, Helvetica;
+	}
+{% endblock %}
+{% block content2 %}
+	<h1>Inicia Sesión</h1>
+	<form action="." method="POST">
+		<table>
+			{{ form }}
+		</table>
+		<p><input type="submit" value="Registrar"></p>
+	</form>
+{% endblock %}

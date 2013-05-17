@@ -1,0 +1,21 @@
+{% extends "bases/base_busqueda.html" %}
+{% block titulobusqueda %} Búsqueda de músicos {% endblock %}
+{% block mostrarbusqueda %}
+<h2>{{ busqueda.nombre_artistico }}</h2>
+	<a href="{{ MEDIA_URL }}MostrarMusico/{{ busqueda.id }}">
+		<img class="imagenes"
+			{% if busqueda.imagen %}
+				src="{{ busqueda.imagen.url }}" 
+			{% else %} 
+				src="{{ MEDIA_URL }}media/imagenes/incognito.jpg"
+			{% endif %}
+			align="left" width="103" height="80" style="margin-right:10px"
+		>				
+	</a>
+	<p>Labor como músico: {{ busqueda.labor }}</p>
+	<p>Usuario: {{ busqueda.username }}	</p>
+	<br>
+{% endblock %}
+{% block tipobusqueda %}
+<p>No hay coincidencias de músicos para:</p>
+{% endblock %}

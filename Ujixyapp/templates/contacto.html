@@ -1,0 +1,12 @@
+{% extends "bases/base.html" %}
+{% block content2 %}
+	<h1>Contáctanos</h1>
+	<form action="." method="POST">
+		<table>
+			{{ form.as_table }}
+		</table>
+		<p><input type="submit" value="Enviar"></p>
+	</form>
+{% endblock %}
+	
+

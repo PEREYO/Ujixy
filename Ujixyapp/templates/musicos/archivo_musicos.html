@@ -1,0 +1,20 @@
+{% extends "bases/base_musicos.html" %}
+{% block content2 %}
+<div>
+	{% for m in musicos %}
+		<h2>{{ m.nombre_artistico }}</h2>
+		<a href="{{ MEDIA_URL }}MostrarMusico/{{ m.id }}">
+			<img class="imagenes"
+			{% if m.imagen %}
+				src="{{ m.imagen.url }}" 
+			{% else %} 
+				src="{{ MEDIA_URL }}media/imagenes/incognito.jpg"
+			{% endif %}
+			align="left" width="103" height="80" style="margin-right:10px">
+		</a>
+		Labor: {{ m.labor}}
+		<HR width="100%"></HR>
+	{% endfor %}
+	<p>&nbsp;</p>
+</div>
+{% endblock %}

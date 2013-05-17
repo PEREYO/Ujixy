@@ -1,0 +1,89 @@
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta charset="utf-8" />
+	<script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}media/js/seleccionador.js"></script>
+	<script language="javascript" type = "text/javascript" src="{{ MEDIA_URL }}media/js/tinymce_3_2_3_1/jscripts/tiny_mce/tiny_mce.js"></script>
+	<script language="javascript" type = "text/javascript" src="{{ MEDIA_URL }}media/js/editores.js"></script>
+
+	<style type="text/css">
+		@import url("{{ MEDIA_URL }}media/css/body.css");
+		@import url("{{ MEDIA_URL }}media/css/colocacion.css");
+		@import url("{{ MEDIA_URL }}media/css/menu_especifico.css");
+		{% block estilos %}{% endblock %}
+		a.sindecoracion {text-decoration: none;
+		color: #ffffff;}
+		body
+		{
+			background-image: url("{{ MEDIA_URL }}media/imagenes/fondo5.jpg");
+		}
+		
+	</style>
+	
+</head>
+
+<body>
+<table class="barra">
+		<tr height="40px">
+			<th align="left">Ujixy</th>
+			<th align="right">
+				<form name="selectform" target="_blank">
+					<select name="enlace" onchange="javascript:Seleccionador()">
+						<option>» {{ usuario.username }} «</option>
+						<option value="{{ MEDIA_URL }}Perfil/">Profile</option>
+						<option value="{{ MEDIA_URL }}CerrarSesion/">Log out</option>
+					</select>
+				</form>
+			</th>
+		</tr>
+	</table>
+<div class="contenedor">
+	
+	<HR width="100%"></HR>
+
+	<div class="lateralizq">
+		<ul class="laterales">
+			<li><img  align="center" width="143" height="114" style="margin-bottom:2mm; margin-top:2mm;"
+			{% if usuario.get_profile.imagen %}
+				src="{{ usuario.get_profile.imagen.url }}" 
+			{% else %} 
+				src="{{ MEDIA_URL }}media/imagenes/interrogacion.jpg"
+			{% endif %}>
+			<li><a href="{{ MEDIA_URL }}Perfil/"><p></p>Profile<p></p></a>
+			<li><a href="{{ MEDIA_URL }}ArchivoMensajes/"><p></p>Messages<p></p></a>	
+			{% if usuario.get_profile.grupo.all %}
+				<li><a href="{{ MEDIA_URL }}NuevaNoticia/"><p></p>Write News<p></p></a>
+				<li><a href="{{ MEDIA_URL }}Vender/"><p></p>Seld your product<p></p></a>
+			{% else %}
+				<li><a href="{{ MEDIA_URL }}NuevoGrupo/"><p></p>Do you have a music group?<p></p></a>
+			{% endif %}
+			 
+		</ul>
+	</div>
+
+	<div class="lateralder">
+		<ul class="laterales">
+			<li><a href="{{ MEDIA_URL }}ArchivoNoticias/"><p></p>News<p></p></a>
+			<li><a href="{{ MEDIA_URL }}ArchivoGrupos/"><p></p>Music Groups<p></p></a>
+			<li><a href="{{ MEDIA_URL }}ArchivoProductos/"><p></p>Products<p></p></a>
+		</ul>
+	</div>
+	<div class="principal">
+		<div id="menuespecifico">
+			<ul>
+				{% block content1 %}{% endblock %}
+			</ul>
+		</div>
+		{% block content2 %}{% endblock %}     	   
+	</div>
+	{% block content3 %}{% endblock %}	
+	<footer class="pie" >
+		Pie de página.
+	</footer>
+</div> 
+
+</body>
+</html>

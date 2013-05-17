@@ -1,0 +1,10 @@
+{% extends "bases/base.html" %}
+{% block content2 %}
+	<h1>Nueva Noticia</h1>
+	<form action="." method="POST">{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+		</table>
+		<p><input type="submit" value="Enviar"></p>
+	</form>
+{% endblock %}

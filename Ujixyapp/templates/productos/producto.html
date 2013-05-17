@@ -1,0 +1,51 @@
+{% extends "bases/base_productos.html" %}
+{% block content2 %}
+<h1 align="center">{{ usuario.username }}</h1>	
+	<h2 align="center">{{ producto.nombre_producto }}</h2>	
+	<p> Tipo: {{ producto.tipo }}</p>
+	<p> Precio: {{ producto.precio }}</p>
+	{% if producto.descripcion %}
+		{{ producto.descripcion }}
+	{% else %}
+		<p>There is not any description.</p>
+	{% endif %}
+<!--
+	<p>Unidades vendidas: {{ producto.unidades_vendidas }}</p>
+-->
+	<p> Write down a message to the musician: </p>
+	<form action="." method="POST">{% csrf_token %}
+		<p>Message: {{ form.mensaje }}</p>
+		<p><input type="submit" value="Enviar"></p>
+	</form>
+<!--
+	{% if  stock  %}
+		<p> ¡Este producto está en stock! </p>
+		<form action="" method="POST" >
+			<table>
+				<tr><th><label for="id_unidades">Cantidad:</label></th><td><input id="id_unidades" value="1" type="number" min='1' max='{{ total_unidades }}' name="unidades"/><br /></td></tr>
+			</table>
+			<p><input type="submit" value="Añadir al carrito"></p>
+		</form>
+	{% else %}
+		<p> Lo sentimos el producto no está en stock .</p>
+	{% endif %}
+-->
+	
+	<p>En esta obra han participado:</p>
+	{% for musico in producto.musicos.all %}
+		<h2>{{ musico.nombre_artistico }}</h2>
+		<a href="{{ MEDIA_URL }}MostrarMusico/{{ musico.id }}">
+			<img class="imagenes"
+				{% if musico.imagen %}
+					src="{{ musico.imagen.url }}" 
+				{% else %} 
+					src="{{ MEDIA_URL }}media/imagenes/incognito.jpg"
+				{% endif %}
+				align="left" width="103" height="80" style="margin-right:10px"
+			>				
+		</a>
+		<p>Labor como músico: {{ musico.labor }}</p>
+		<p>Usuario: {{ musico }}	</p>
+		<br>
+	{% endfor %}
+{% endblock %}

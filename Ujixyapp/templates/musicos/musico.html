@@ -1,0 +1,25 @@
+{% extends "bases/base_musicos.html" %}
+{% block content2 %}
+	<h2 align="center">{{ musico.nombre_artistico }}</h2>
+	<p>Labor: {{ musico.labor }}</p>
+	{% if musico.descripcion_musico %}
+		{{ musico.descripcion_musico }}
+	{% else %}
+		<p>No hay ninguna descripción disponible.</p>
+	{% endif %}
+	<p>Productos de {{ musico.nombre_artistico }} :</p>
+	{% for p in musico.productos_vendidos.all %}
+			<h3>{{ p.nombre_producto }}</h3>
+			<a href="{{ MEDIA_URL }}MostrarProducto/{{ p.id }}">
+				<img class="imagenes"
+					{% if p.imagen %}
+						src="{{ p.imagen.url }}" 
+					{% else %} 
+						src="{{ MEDIA_URL }}media/imagenes/interrogacion.jpg"
+					{% endif %}
+					align="left" width="103" height="80" style="margin-right:10px"></a>
+			Tipo: {{ p.tipo }}
+			<p>Precio: {{ p.precio}}</p>
+			<p>&nbsp;</p>
+		{% endfor %}
+{% endblock %}

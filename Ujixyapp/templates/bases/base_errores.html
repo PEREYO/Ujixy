@@ -1,0 +1,29 @@
+
+
+{% endblock %}
+	<h1>Contáctanos</h1>
+	<form action="." method="POST">
+		<table>
+			<tr>
+				<th><label for="id_topic">Topic:</label></th>
+				<td>
+					<select name="topic" id="id_topic">
+						<option value="general">General enquiry</option>
+						<option value="bug">Bug report</option>
+						<option value="suggestion">Suggestion</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="id_message">Message:</label></th>
+				<td><input type="text" name="message" id="id_message" /></td>
+			</tr>
+			<tr>
+				<th><label for="id_sender">Sender:</label></th>
+				<td><input type="text" name="sender" id="id_sender" /></td>
+			</tr>
+
+		</table>
+		<p><input type="submit" value="Enviar"></p>
+	</form>
+

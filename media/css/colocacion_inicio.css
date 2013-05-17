@@ -1,0 +1,55 @@
+/*Elementos de la página de inicio*/
+DIV.barra
+{
+	padding-top:4mm;
+	text-indent: 1cm;
+	text-align:left;
+	background-color: #000000;
+	color: #ffffff;
+	font-size:12pt;
+	font-weight: bold;
+	height:1cm;
+}
+DIV.contenedor
+{
+	width: 935px;
+	margin:auto;
+}
+DIV.registro
+{
+	text-align:middle;
+	float:left;
+	width: 430px;
+	height:190px;
+	background-color:#342c07;	
+}
+
+DIV.login
+{
+	margin-top: 15px;
+	float:left;
+	width: 430px;
+	height:160px;
+	background-color:#a09979;
+	clear:left;
+}
+
+DIV.mensaje
+{
+	margin-top:7%;
+	margin-left: 445px;
+	font-size:18pt;
+	font-weight:900;
+	color:#ffffff;
+	width: 490px;
+	height:365px;
+	background-color:#000000;
+	
+}
+a.sindecoracion {text-decoration: none;
+		color: #ffffff;}
+		
+#reginfo div
+{
+	float:right;
+}

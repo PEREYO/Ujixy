@@ -1,0 +1,8 @@
+{% extends "bases/base_noticias.html" %}
+{% block content2 %}
+	<h2 align="center">{{ noticia.titulo }}</h2>
+		{{ noticia.cuerpo|safe }}
+		<p>probando</p>
+	<p align="center">{{ noticia.hora|date|urlize}}</p>
+{% endblock %}
+

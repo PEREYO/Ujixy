@@ -1,0 +1,11 @@
+{% extends "base_mensaje.html" %}
+{% block content2 %}
+<div>
+	{% for m in mensajes %}
+	<h2>{{ m.asunto }}</h2>
+	<a href="{{ MEDIA_URL }}MostrarMensaje/{{ m.slug }}">
+		<img class="imagenes" src="{{ MEDIA_URL }}media/imagenes/interrogacion.jpg" align="left" width="103" height="80" style="margin-right:10px"></a>
+	<p>&nbsp;</p>
+	{% endfor %}
+</div>
+{% endblock %}

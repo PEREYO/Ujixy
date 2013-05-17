@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>Inicio Ujixy</title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+		@import url("{{ MEDIA_URL }}media/css/colocacion_inicio.css");
+
+		body
+		{
+			background-color:#504926;
+			color:white;
+			text-align: center;
+			margin: auto;
+		}
+		DIV.mensaje
+		{
+			background-image: url("{{ MEDIA_URL }}media/imagenes/fondo7.jpg");
+			
+		}
+	</style>
+	
+</head>
+
+<body>
+		<div class="barra">
+			<a class="sindecoracion" href="{{ MEDIA_URL }}">Ujixy</a>
+		</div>
+		<div class="contenedor">
+			<div class="registro"> 
+				<p>Are you new? ¡Sign up! </p>
+				<form action="" method="POST" >
+					{% csrf_token %}
+
+					<table>
+						<tr><th><label for="id_username">User name:</label></th><td><input id="id_username" type="text" name="username" maxlength="30" /><br /></td></tr>
+						<tr><th><label for="id_password1">Password:</label></th><td><input type="password" name="password1" id="id_password1" /></td></tr>
+						<tr><th><label for="id_password2">Repeat password:</label></th><td><input type="password" name="password2" id="id_password2" /><br /></td></tr>
+					</table>
+				<p><input type="submit" value="Registrar" name="registrar"></p>
+				</form>
+			</div>
+			<div class="login">
+				<p> Log in Ujixy </p>
+				<form action="" method="POST" >
+					{% csrf_token %}
+					<table>
+						{{ ingresarform }}
+					</table>
+					<p><input type="submit" value="Iniciar sesión" name="ingresar"></p>
+				</form>
+			</div>
+			<div class="mensaje">
+				<p>&nbsp;</p>
+				<p>Wellcome to Ujixy, the web aplication for musicians and music lovers</p>
+				<p>Log in or sign up to start enjoying of Ujixy, where you will be able to buy directly to your favorites musicians or to sale to your public without an intermediary</p>
+			</div>
+		</div>
+	
+	
+	
+</body>
+</html>

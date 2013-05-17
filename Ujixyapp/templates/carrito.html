@@ -1,0 +1,21 @@
+{% extends 'bases/base.html' %}
+{% block estilos %}
+	@import url("{{ MEDIA_URL }}media/css/carrito.css");
+{% endblock %}
+{% block content1 %}
+<p>{{ cart }}</p>
+ <table>
+ <tr>
+ <th>Product</th >
+ <th >Quantity</th >
+ <th >Total Price</th >
+ </tr >
+ {% for item in cart %}
+ <tr >
+ <td >{{ item.product.nombre_producto }}</td >
+ <td >{{ item.quantity }}</td >
+ <td >{{ item.total_price }}</td >
+ </tr >
+ {% endfor %}
+ </table >
+{% endblock %}
