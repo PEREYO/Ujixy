@@ -5,6 +5,7 @@ from django.views.generic import RedirectView
 #from django.views.generic.simple import direct_to_template
 
 
+
 admin.autodiscover()
 
 admin.autodiscover()
